@@ -189,7 +189,7 @@ sudo yum install -y nginx
 ```nginx
 server {
     listen 80;
-    server_name your-domain.com;  # 替換為您的域名或 IP
+    server_name 98.159.109.110;  # 服務器公網IP
 
     # 日誌
     access_log /var/log/nginx/agenda-backend-access.log;
@@ -255,7 +255,7 @@ sudo certbot renew --dry-run
 ```nginx
 server {
     listen 443 ssl http2;
-    server_name your-domain.com;
+    server_name 98.159.109.110;  # 服務器公網IP
 
     ssl_certificate /path/to/cert.pem;
     ssl_certificate_key /path/to/key.pem;
@@ -268,12 +268,12 @@ server {
     # ... 其他配置
 }
 
-# HTTP 重定向到 HTTPS
-server {
-    listen 80;
-    server_name your-domain.com;
-    return 301 https://$server_name$request_uri;
-}
+# HTTP 重定向到 HTTPS（可選）
+# server {
+#     listen 80;
+#     server_name 98.159.109.110;
+#     return 301 https://$server_name$request_uri;
+# }
 ```
 
 ## 監控和維護
